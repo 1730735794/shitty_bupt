@@ -1,0 +1,40 @@
+println "您好，请问有什么可以帮到您的?"
+println "1 - 我该穿什么尺码？"
+println "2 - 发什么快递？包邮吗？"
+println "3 - 退换货须知（重要！！）"
+println "bye - 离开聊天"
+input $1
+switch $1
+    case "1"
+        println "请问您的性别为？"
+        println "1 - 男"
+        println "2 - 女"
+        input $2
+        switch $2
+            case "1"
+                println "亲，我们暂无男生款短裙"
+            case "2"
+                println "反转了，原来都是均码"
+        println ""
+        retry
+    case "2"
+        println "不包邮（新疆、西藏等偏远地区除外）"
+        println ""
+        retry
+    case "3"
+        println "不许退不许退不许退！"
+        println "886~"
+        end
+    case "bye"
+        println "祝您生活愉快"
+        println ""
+    case other
+        println "会扣字儿不？"
+        println ""
+        retry
+println "请对我的服务打分"
+input $3
+print "本次服务评分为"
+println $3
+println ""
+println "再见"

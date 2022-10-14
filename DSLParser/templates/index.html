@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <div class="container">
+        <div class="content">
+            <div class="item item-left">
+                <div class="avatar"><img src="static/robot.jpg" /></div>
+                <div class="bubble bubble-left">{{msg|safe}}</div>
+            </div>
+        </div>
+        <div class="input-area">
+            <textarea name="text" id="textarea" onkeydown="userSendByEnter(event)"></textarea>
+            <div class="button-area">
+                <button id="send-btn" onclick="userSend()">发 送</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

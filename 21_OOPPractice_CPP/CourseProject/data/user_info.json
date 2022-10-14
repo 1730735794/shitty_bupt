@@ -1,0 +1,46 @@
+{
+    "user_info": [
+        {
+            "balance": 108994.5,
+            "password": "12",
+            "type": "Seller",
+            "username": "12"
+        },
+        {
+            "balance": 891669.82,
+            "password": "1",
+            "type": "Buyer",
+            "username": "1"
+        },
+        {
+            "balance": 101,
+            "password": "test",
+            "type": "Buyer",
+            "username": "test"
+        },
+        {
+            "balance": 0,
+            "password": "123",
+            "type": "Buyer",
+            "username": "中文测试"
+        },
+        {
+            "balance": 0,
+            "password": "sj",
+            "type": "Seller",
+            "username": "sj"
+        },
+        {
+            "balance": 0,
+            "password": "1",
+            "type": "Buyer",
+            "username": "111111111111111111"
+        },
+        {
+            "balance": 0,
+            "password": "0",
+            "type": "Buyer",
+            "username": "0"
+        }
+    ]
+}

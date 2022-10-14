@@ -1,0 +1,22 @@
+{
+    "product_info": [
+        {
+            "amount": 0,
+            "describe": "1",
+            "discount": 1,
+            "name": "1",
+            "price": 1,
+            "sellername": "12",
+            "type": "Book"
+        },
+        {
+            "amount": 2,
+            "describe": "2",
+            "discount": 2,
+            "name": "2",
+            "price": 2,
+            "sellername": "12",
+            "type": "None"
+        }
+    ]
+}

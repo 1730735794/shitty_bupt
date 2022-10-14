@@ -1,0 +1,17 @@
+#	#字符开头的一行为注释
+#	右边为Query 左边为Answer 中间用空格分隔
+#	示例：
+#	localhost 127.0.0.1
+
+#A记录
+www.test1.qnmb 12.123.234.210
+www.9senko.haoye 123.123.123.123
+www.pornhub.com 0.0.0.0
+#AAAA记录
+
+#PTR记录
+
+#CNAME记录
+www.9senko.org www.9senko.another
+www.9senko.another www.9senko.haiyouyige
+www.9senko.haiyouyige www.9senko.haoye
