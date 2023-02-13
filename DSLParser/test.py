@@ -1,45 +1,42 @@
-import os
-import platform
+import requests
+import json
 
-TMP_INPUT_FILE = "./in.txt"
-TMP_OUTPUT_FILE = "./out.txt"
-
-
-def test_pipeline(s1, s2):
-    with open(TMP_INPUT_FILE, "w") as f:
-        f.write(str(s1) + "\n")
-        f.write(str(s2) + "\n")
-    os.system(
-        "python3 ./DSLParser.py ./test.script < {} > {}".format(TMP_INPUT_FILE, TMP_OUTPUT_FILE))
-    with open(TMP_OUTPUT_FILE, "r") as f:
-        res = f.read().split('\n')
-    # delete tmpfiles
-    os.remove(TMP_INPUT_FILE)
-    os.remove(TMP_OUTPUT_FILE)
+def test_func(num1, num2):
+    output=[]
+    res=requests.post("http://127.0.0.1:8000/reply",json={'msg':str(num1)})
+    jsonobj = json.loads(res.text)
+    # 返回值格式解析
+    output.extend(str(jsonobj['msg'][0]).split('<br/>')[:-1])
+    res=requests.post("http://127.0.0.1:8000/reply",json={'msg':str(num2)})
+    jsonobj = json.loads(res.text)
+    output.extend(str(jsonobj['msg'][0]).split('<br/>')[:-1])
     # test1
-    if res[0] != str(s1):
+    if output[0] != str(num1):
         return False
     # test2
-    if int(str(s1)) >= 1 and int(str(s1)) <= 5:
-        if res[1] != str(int(str(s1)) * 2):
+    if int(str(num1)) >= 1 and int(str(num1)) <= 3:
+        if output[1] != str(int(str(num1)) + 1):
             return False
-    elif res[1] != "other":
+    elif int(str(num1)) >= 4 and int(str(num1)) <= 5:
+        if output[1] != str(int(str(num1)) - 1):
+            return False
+    elif output[1] != str(num1):
         return False
     # test3
-    if str(s1) == str(s2) and res[2] != "same":
+    if str(num1) == str(num2) and output[2] != "success":
         return False
-    if str(s1) != str(s2) and res[2] != "not same":
+    if str(num1) != str(num2) and output[2] != "fail":
         return False
     # passed
     return True
 
 
-total_test_count = 0
-total_passed_count = 0
-for s1 in range(10):
-    for s2 in range(10):
-        total_test_count += 1
-        if test_pipeline(s1, s2) == True:
-            total_passed_count += 1
-        print("\r({}/{}) cases tested".format(total_test_count, 100), end="")
-print("\n{}/{} testcases passed".format(total_passed_count, total_test_count))
+test_num = 0
+pass_num = 0
+for num1 in range(10):
+    for num2 in range(10):
+        test_num += 1
+        if test_func(num1, num2) == True:
+            pass_num += 1
+        print("\r({}/{}) cases tested".format(test_num, 100), end="")
+print("\n{}/{} testcases passed".format(pass_num, test_num))

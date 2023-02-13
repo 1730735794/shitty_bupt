@@ -1,0 +1,23 @@
+println "请选择下列选项中正确的一个："
+println "a - 我好好学习天天向上"
+println "b - 我只爱打游戏"
+println "c - 我喜欢谈恋爱"
+println "d - 我喜欢看动漫"
+input $2
+switch $2
+    case "a"
+        println "正确的，中肯的，一阵见血的"
+    case "b"
+        println "游戏打多了容易近视噢~"
+    case "c"
+        println "你真的有女朋友吗？我不信"
+        print "你女朋友叫什么"
+        input $1
+        print "老师，有人和"
+        print $1
+        print "早恋！"
+    case "d"
+        println "请问你爱看什么动漫？"
+        input $1
+        print $1
+        println "？狗都不看！"
